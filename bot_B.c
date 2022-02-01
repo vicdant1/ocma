@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include <math.h>
 
 #define MAX_LINE 50
 
@@ -15,42 +16,65 @@ void desalocarEspaco(int h, int w, int *mapaDados[h][w])
   }
 }
 
-int VerificarLaterais(int xBot, int yBot, int h, int w, int * mapaDados[h][w]){
+int verificarLaterais(int xBot, int yBot, int h, int w)
+{
   int limiteTop = 0;
-  int limiteBottom = h-1;
+  int limiteBottom = h - 1;
 
   int limiteLeft = 0;
-  int limiteRight = w-1;
+  int limiteRight = w - 1;
 
   // configurando limites do bot
-  if(xBot == limiteTop){
-    if(yBot == limiteLeft)
+  if (xBot == limiteTop)
+  {
+    if (yBot == limiteLeft)
       return 8;
 
-    if(yBot == limiteRight)
+    if (yBot == limiteRight)
       return 2;
 
-    return 1;    
+    return 1;
   }
-  
-  if(xBot == limiteBottom)
+
+  if (xBot == limiteBottom)
   {
-    if(yBot == limiteLeft)
+    if (yBot == limiteLeft)
       return 6;
 
-    if(yBot == limiteRight)
+    if (yBot == limiteRight)
       return 4;
 
     return 5;
   }
 
-  if(yBot == limiteLeft)
+  if (yBot == limiteLeft)
     return 7;
 
-  if(yBot == limiteRight)
+  if (yBot == limiteRight)
     return 3;
 
   return 0;
+}
+
+void escolherDirecaoAleatoria()
+{
+  int r = rand() % 3;
+
+  switch (r)
+  {
+  case 0:
+    printf("UP\n");
+    break;
+  case 1:
+    printf("RIGHT\n");
+    break;
+  case 2:
+    printf("DOWN\n");
+    break;
+  case 3:
+    printf("LEFT\n");
+    break;
+  }
 }
 
 /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
@@ -96,6 +120,7 @@ int main()
   // === PARTIDA ===
   while (1)
   {
+    // Lê dados
     readData(h, w, mapaDados, xBot, yBot);
 
     /*
@@ -108,12 +133,10 @@ int main()
    6\----------/4
           5
     */
-    int lateralEmPerigo = VerificarLaterais(*xBot, *yBot, h, w, mapaDados);
+    // faz um scanner nas laterais para obter a informação de perigo e evitar multas
+    int lateralEmPerigo = verificarLaterais(*xBot, *yBot, h, w);
 
-    
-
-
-
+    int range = ceil((h / 4) + 1);
 
     fprintf(stderr, "(%i, %i)\n(%i, %i)", *xBot, *yBot, w, h);
     for (int i = 0; i < h; i++)
