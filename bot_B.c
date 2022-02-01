@@ -1,19 +1,21 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_STR 50
 
 /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
-void readData(int h, int w) {
+void readData(int h, int w, int ** mapaDados) {
   char id[MAX_STR];
-  int v, n, x, y;
+  int n, x, y;
 
   // lê os dados da área de pesca
   for (int i = 0; i < h; i++) {   
     for (int j = 0; j < w; j++) {
-      scanf("%i", &v);
+      scanf("%i", &mapaDados[i][j]);
     }
   }
+  
   // lê os dados dos bots
   scanf(" BOTS %i", &n);
   // o " " antes de BOTS é necessário para ler o '\n' da linha anterior
@@ -35,6 +37,9 @@ int main() {
   scanf("AREA %i %i", &h, &w);  // lê a dimensão da área de pesca: altura (h) x largura (w)
   scanf(" ID %s", myId);        // ...e o id do bot
   // obs: o " " antes de ID é necessário para ler o '\n' da linha anterior
+  int** mapaDados = (int *) malloc(sizeof(int) * h);
+  for(int i=0; i < w; i++)
+      mapaDados[i] = malloc(sizeof(int) * w);
 
   // Para "debugar", é possível enviar dados para a saída de erro padrão (stderr).
   // Esse dado não será enviado para o simulador, apenas para o terminal.
@@ -47,7 +52,7 @@ int main() {
   while (1) {
 
     // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-    readData(h, w);
+    readData(h, w, mapaDados);
 
     // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
