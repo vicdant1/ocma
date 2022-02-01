@@ -139,14 +139,15 @@ int main()
     int range = ceil((h / 4) + 1);
 
     fprintf(stderr, "(%i, %i)\n(%i, %i)", *xBot, *yBot, w, h);
-    for (int i = 0; i < h; i++)
-    {
-      for (int j = 0; j < w; j++)
-      {
-        fprintf(stderr, "%i ", *mapaDados[i][j]);
-      }
-      fprintf(stderr, "\n");
-    }
+
+    // for (int i = 0; i < h; i++)
+    // {
+    //   for (int j = 0; j < w; j++)
+    //   {
+    //     fprintf(stderr, "%i ", *mapaDados[i][j]);
+    //   }
+    //   fprintf(stderr, "\n");
+    // }
 
     // INSERIR UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
@@ -159,6 +160,7 @@ int main()
   }
 
   desalocarEspaco(h, w, mapaDados);
-
+  free(xBot);
+  free(yBot);
   return 0;
 }
