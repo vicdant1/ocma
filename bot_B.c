@@ -5,7 +5,7 @@
 #define MAX_STR 50
 
 /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
-void readData(int h, int w, int ** mapaDados) {
+void readData(int h, int w, int ** mapaDados, int * xBot, int * yBot, char myId[MAX_STR]) {
   char id[MAX_STR];
   int n, x, y;
 
@@ -15,12 +15,15 @@ void readData(int h, int w, int ** mapaDados) {
       scanf("%i", &mapaDados[i][j]);
     }
   }
-  
   // lê os dados dos bots
   scanf(" BOTS %i", &n);
   // o " " antes de BOTS é necessário para ler o '\n' da linha anterior
   for (int i = 0; i < n; i++) {
     scanf("%s %i %i", id, &x, &y);
+    if(strcmp(myId, id) == 0){
+      *xBot = x;
+      *yBot = y;
+    }
   }
 }
 
@@ -36,10 +39,13 @@ int main() {
   int h, w;
   scanf("AREA %i %i", &h, &w);  // lê a dimensão da área de pesca: altura (h) x largura (w)
   scanf(" ID %s", myId);        // ...e o id do bot
+  int ** mapaDados = (int **) malloc(sizeof(int *) * h);
+  for(int i=0; i<w; i++)
+    mapaDados[i] = malloc(sizeof(int) * w);
+
+  int xBot;
+  int yBot;
   // obs: o " " antes de ID é necessário para ler o '\n' da linha anterior
-  int** mapaDados = (int *) malloc(sizeof(int) * h);
-  for(int i=0; i < w; i++)
-      mapaDados[i] = malloc(sizeof(int) * w);
 
   // Para "debugar", é possível enviar dados para a saída de erro padrão (stderr).
   // Esse dado não será enviado para o simulador, apenas para o terminal.
@@ -52,7 +58,7 @@ int main() {
   while (1) {
 
     // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-    readData(h, w, mapaDados);
+    readData(h, w, mapaDados, &xBot, &yBot, myId);
 
     // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
