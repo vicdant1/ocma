@@ -1,54 +1,129 @@
-/********************************************************************
-  Bot-exemplo
-  
-  Bot_A: anda pra esquerda
-  
-  Após receber as informações iniciais do jogo, a cada rodada esse
-  bot irá se movimentar para esquerda.
-  Cabe a você agora aprimorar sua estratégia!!!
- ********************************************************************/
-
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 
 #define MAX_LINE 50
 
-/* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
-void readData(int h, int w) {
-  char id[MAX_LINE];
-  int v, n, x, y;
-
-  for (int i = 0; i < h; i++) {   
-    for (int j = 0; j < w; j++) {
-      scanf("%i", &v);
+void desalocarEspaco(int h, int w, int *mapaDados[h][w])
+{
+  for (int i = 0; i < h; i++)
+  {
+    for (int j = 0; j < w; j++)
+    {
+      free(mapaDados[i][j]);
     }
-  }
-  scanf(" BOTS %i", &n);           // lê a quantidade de bots
-  for (int i = 0; i < n; i++) {
-    scanf("%s %i %i", id, &x, &y); // lê o id dos bots e suas posições
   }
 }
 
-int main() {
-  char line[MAX_LINE];   // dados temporários
-  char myId[MAX_LINE];   // identificador do bot em questão
+int VerificarLaterais(int xBot, int yBot, int h, int w, int * mapaDados[h][w]){
+  int limiteTop = 0;
+  int limiteBottom = h-1;
 
-  setbuf(stdin, NULL);   // stdin, stdout e stderr não terão buffers
-  setbuf(stdout, NULL);  // assim, nada é "guardado temporariamente"
+  int limiteLeft = 0;
+  int limiteRight = w-1;
+
+  // configurando limites do bot
+  if(xBot == limiteTop){
+    if(yBot == limiteLeft)
+      return 8;
+
+    if(yBot == limiteRight)
+      return 2;
+
+    return 1;    
+  }
+  
+  if(xBot == limiteBottom)
+  {
+    if(yBot == limiteLeft)
+      return 6;
+
+    if(yBot == limiteRight)
+      return 4;
+
+    return 5;
+  }
+
+  if(yBot == limiteLeft)
+    return 7;
+
+  if(yBot == limiteRight)
+    return 3;
+
+  return 0;
+}
+
+/* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
+void readData(int h, int w, int *mapaDados[h][w], int *xBot, int *yBot)
+{
+  char id[MAX_LINE];
+  int n;
+
+  for (int i = 0; i < h; i++)
+  {
+    for (int j = 0; j < w; j++)
+    {
+      mapaDados[i][j] = (int *)malloc(sizeof(int *));
+      scanf("%i", mapaDados[i][j]);
+    }
+  }
+  scanf(" BOTS %i", &n); // lê a quantidade de bots
+  for (int i = 0; i < n; i++)
+  {
+    scanf("%s %i %i", id, xBot, yBot); // lê o id dos bots e suas posições
+  }
+}
+
+int main()
+{
+  char line[MAX_LINE]; // dados temporários
+  char myId[MAX_LINE]; // identificador do bot em questão
+
+  setbuf(stdin, NULL);
+  setbuf(stdout, NULL);
   setbuf(stderr, NULL);
 
   // === INÍCIO DA PARTIDA ===
   int h, w;
-  scanf("AREA %i %i", &h, &w);  // dimensão da área de pesca: altura (h) x largura (w)
+  scanf("AREA %i %i", &h, &w); // dimensão da área de pesca: altura (h) x largura (w)
   // readData(h, w);               // lê os dados do jogo
-  scanf(" ID %s", myId);     // por fim, sabe qual seu próprio id
+  scanf(" ID %s", myId); // por fim, sabe qual seu próprio id
   fprintf(stderr, "%s\n", myId);
+  int *mapaDados[h][w];
+  int *xBot;
+  int *yBot;
 
-  // === PARTIDA === 
-  // fica num laço infinito, pois quem vai terminar seu programa é o SIMULADOR.
-  while (1) {
-    // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-    readData(h, w);
+  // === PARTIDA ===
+  while (1)
+  {
+    readData(h, w, mapaDados, xBot, yBot);
+
+    /*
+         1      
+   8/----------\ 2
+    |          |
+    |     0    |
+   7|          |3 
+    |          |
+   6\----------/4
+          5
+    */
+    int lateralEmPerigo = VerificarLaterais(*xBot, *yBot, h, w, mapaDados);
+
+    
+
+
+
+
+    fprintf(stderr, "(%i, %i)\n(%i, %i)", *xBot, *yBot, w, h);
+    for (int i = 0; i < h; i++)
+    {
+      for (int j = 0; j < w; j++)
+      {
+        fprintf(stderr, "%i ", *mapaDados[i][j]);
+      }
+      fprintf(stderr, "\n");
+    }
 
     // INSERIR UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
@@ -59,6 +134,8 @@ int main() {
     scanf("%s", line);
     // fgets(line, MAX_LINE, stdin);
   }
+
+  desalocarEspaco(h, w, mapaDados);
 
   return 0;
 }

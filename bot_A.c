@@ -1,11 +1,3 @@
-/********************************************************************
-  Bot-exemplo
-  
-  Após receber as informações iniciais do jogo, a cada rodada esse
-  bot irá se movimentar para esquerda.
-  Cabe a você agora aprimorar sua estratégia!!!
- ********************************************************************/
-
 #include <stdio.h>
 #include <string.h>
 
