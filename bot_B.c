@@ -51,8 +51,7 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
       return;
     }
 
-    while (true)
-    {
+    
       
       // está nos limites? (top)
       if(!(yBot - count < 0 || yBot - count > rangeY)){
@@ -61,8 +60,8 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
         {
           *xPeixe = xBot;
           *yPeixe = yBot - count;
-
-          break;
+          
+          return;
         }
       }
       // está nos limites right?
@@ -73,7 +72,7 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
           *xPeixe = xBot + count;
           *yPeixe = yBot;
 
-          break;
+          return;
         }
       }
       // verifica bottom
@@ -84,7 +83,7 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
           *xPeixe = xBot;
           *yPeixe = yBot + count;
 
-          break;
+          return;
         }
       }
       // verifica left
@@ -94,8 +93,8 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
         {
           *xPeixe = xBot - count;
           *yPeixe = yBot;
-
-          break;
+          
+          return;
         }
       }
       
