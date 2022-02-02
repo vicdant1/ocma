@@ -4,6 +4,8 @@
 #include <stdbool.h>
 
 #define MAX_STR 50
+#define MAX_PRT 25
+#define MAX_WEIGHT 10
 
 typedef struct Porto
 {
@@ -104,7 +106,8 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
 
   /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
   void readData(int h, int w, int **mapaDados, int *xBot, int *yBot,
-                char myId[MAX_STR], int *yPeixe, int *xPeixe, Porto* Portos)
+                char myId[MAX_STR], int *yPeixe, int *xPeixe, Porto* Portos,
+                int * numeroPortos, bool portosLidos)
   {
     char id[MAX_STR];
     int n, x, y;
@@ -124,13 +127,15 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
           mapaDados[i][j] = 0;
         }
         //VERIFICA POSIÇÃO DO PORTO
-        if (mapaDados[i][j] == 1)
-        {
-          //CRIAR MATRIZ DE PORTOS E ADICIONAR O PORTO
-          Portos[countPortos].xPorto = i;
-          Portos[countPortos].yPorto = j;
-          countPortos++;
-          // Portos = (Porto*) realloc(Portos, sizeof(Porto) * (countPortos+1)); estudar como realocar corretamente
+        if(!portosLidos){
+          if (mapaDados[i][j] == 1)
+          {
+            // LENDO ARRAY DE PORTOS
+            Portos[countPortos].xPorto = i;
+            Portos[countPortos].yPorto = j;
+            countPortos++;
+            *numeroPortos++;
+          }
         }
       }
     }
@@ -171,11 +176,14 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
       mapaDados[i] = malloc(sizeof(int) * w);
 
     // CRIANDO MAPA DE PORTOS
-    struct Porto Portos[10];
-    
+    struct Porto Portos[MAX_PRT];
+    int numeroPortos = 0;
+    bool portosLidos = false;
+
     //CRIAR OBJETO DE BARCO E PASSA A MEMORIA
     int xBot;
     int yBot;
+    struct Barco meuBarco;
 
     int xPeixe = -1;
     int yPeixe = -1;
@@ -194,7 +202,8 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
     {
 
       // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-      readData(h, w, mapaDados, &xBot, &yBot, myId, &xPeixe, &yPeixe, Portos);
+      readData(h, w, mapaDados, &xBot, &yBot, myId, &xPeixe, &yPeixe, Portos, &numeroPortos, portosLidos);
+      portosLidos = true;
 
       // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
