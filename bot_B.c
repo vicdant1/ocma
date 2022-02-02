@@ -2,6 +2,7 @@
 #include <string.h>
 #include <stdlib.h>
 #include <stdbool.h>
+#include <math.h>
 
 #define MAX_STR 50
 #define MAX_PRT 25
@@ -15,10 +16,80 @@ typedef struct Porto
 
 typedef struct Barco
 {
+  char id[MAX_STR];
   int xBot;
   int yBot;
-  int kg;
+  int pesoAtual;
+
+  int xPortoProximo;
+  int yPortoProximo;
+
+  int xPeixeProximo;
+  int yPeixeProximo;
+
 } Barco;
+
+void movimentaCima(){
+  printf("UP\n");
+}
+
+void movimentaBaixo(){
+  printf("DOWN\n");
+}
+
+void movimentaDireita(){
+  printf("RIGHT\n");
+}
+
+void movimentaEsquerda(){
+  printf("LEFT\n");
+}
+
+void pescar(){
+  printf("FISH\n");
+}
+
+void vender(){
+  printf("SELL\n");
+}
+
+void executarProximaAcao(Barco * meuBarco, int ** mapaDados, bool * pescar) {
+
+}
+
+void calcularPortoMaisProximo(Barco *meuBarco, Porto *Portos, int numeroPortos)
+{
+  int xDiff = 0;
+  int yDiff = 0;
+  int totalDiff = 0;
+  int index = 0;
+
+  for (int i = 0; i < numeroPortos; i++)
+  {
+    if (i == 0)
+    {
+      xDiff = abs(Portos[i].xPorto - meuBarco->xBot);
+      yDiff = abs(Portos[i].yPorto - meuBarco->yBot);
+      index = i;
+      totalDiff = xDiff + yDiff;
+    }
+    else
+    {
+      int totalDiffAux = 0;
+
+      totalDiffAux = abs(Portos[i].xPorto - meuBarco->xBot) + abs(Portos[i].yPorto - meuBarco->yBot);
+
+      if (totalDiffAux < totalDiff)
+      {
+        index = i;
+        totalDiff = totalDiffAux;
+      }
+    }
+  }
+
+  meuBarco->xPortoProximo = Portos[index].xPorto;
+  meuBarco->yPortoProximo = Portos[index].yPorto;
+}
 
 bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
 {
@@ -34,185 +105,192 @@ bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
   return false;
 }
 
-void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int xBot, int h, int w)
+void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
 {
-  bool nasceuEncimaDePeixe = temPeixe(mapaDados, xBot, yBot);
+  bool nasceuEncimaDePeixe = temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot);
   int count = 1;
   int rangeX = w - 1;
   int rangeY = h - 1;
   bool achouPeixe = false;
 
-  while (*yPeixe == -1 || *xPeixe == -1)
+  while (meuBarco->yPeixeProximo == -1 || meuBarco->xPeixeProximo == -1)
   {
     //IF POSIÇÃO ATUAL DO BOT TIVER PEIXE NA POSIÇÃO DA MATRIZ, PASSA ATUAL
     // VERIFICA SE JA NASCEU ENCIMA
     if (nasceuEncimaDePeixe)
     {
-      *xPeixe = xBot;
-      *yPeixe = yBot;
+      meuBarco->xPeixeProximo = meuBarco->xBot;
+      meuBarco->yPeixeProximo = meuBarco->yBot;
       return;
     }
 
-    
-      
-      // está nos limites? (top)
-      if(!(yBot - count < 0 || yBot - count > rangeY)){
-        // verifica top
-        if (temPeixe(mapaDados, xBot, yBot - count))
-        {
-          *xPeixe = xBot;
-          *yPeixe = yBot - count;
-          
-          return;
-        }
-      }
-      // está nos limites right?
-      if(!(xBot + count < 0 || xBot + count > rangeX)){
-        // verifica right
-        if (temPeixe(mapaDados, xBot + count, yBot))
-        {
-          *xPeixe = xBot + count;
-          *yPeixe = yBot;
+    // está nos limites? (top)
+    if (!(meuBarco->yBot - count < 0 || meuBarco->yBot - count > rangeY))
+    {
+      // verifica top
+      if (temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot - count))
+      {
+        meuBarco->xPeixeProximo = meuBarco->xBot;
+        meuBarco->yPeixeProximo = meuBarco->yBot - count;
 
-          return;
-        }
+        return;
       }
-      // verifica bottom
-      if(!(yBot + count < 0 || yBot + count > rangeY)){
-        // verifica top
-        if (temPeixe(mapaDados, xBot, yBot + count))
-        {
-          *xPeixe = xBot;
-          *yPeixe = yBot + count;
+    }
+    // está nos limites right?
+    if (!(meuBarco->xBot + count < 0 || meuBarco->xBot + count > rangeX))
+    {
+      // verifica right
+      if (temPeixe(mapaDados, meuBarco->xBot + count, meuBarco->yBot))
+      {
+        meuBarco->xPeixeProximo = meuBarco->xBot + count;
+        meuBarco->yPeixeProximo = meuBarco->yBot;
 
-          return;
-        }
+        return;
       }
+    }
+    // verifica bottom
+    if (!(meuBarco->yBot + count < 0 || meuBarco->yBot + count > rangeY))
+    {
+      // verifica top
+      if (temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot + count))
+      {
+        meuBarco->xPeixeProximo = meuBarco->xBot;
+        meuBarco->yPeixeProximo = meuBarco->yBot + count;
+
+        return;
+      }
+    }
+    // verifica left
+    if (!(meuBarco->xBot - count < 0 || meuBarco->xBot - count > rangeX))
+    {
       // verifica left
-      if(!(xBot - count < 0 || xBot - count > rangeX)){
-        // verifica left
-        if (temPeixe(mapaDados, xBot - count, yBot))
-        {
-          *xPeixe = xBot - count;
-          *yPeixe = yBot;
-          
-          return;
-        }
-      }
-      
-      count ++;
-    }
-  }
-
-  /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
-  void readData(int h, int w, int **mapaDados, int *xBot, int *yBot,
-                char myId[MAX_STR], int *yPeixe, int *xPeixe, Porto* Portos,
-                int * numeroPortos, bool portosLidos)
-  {
-    char id[MAX_STR];
-    int n, x, y;
-    int countPortos = 0;
-
-    // lê os dados da área de pesca
-    for (int i = 0; i < h; i++)
-    {
-      for (int j = 0; j < w; j++)
+      if (temPeixe(mapaDados, meuBarco->xBot - count, meuBarco->yBot))
       {
-        scanf("%i", &mapaDados[i][j]);
+        meuBarco->xPeixeProximo = meuBarco->xBot - count;
+        meuBarco->yPeixeProximo = meuBarco->yBot;
 
-        //ELIMINA PEIXES NÃO PESCÁVEIS {VERIFICAR SE EH 11 21 31 OU 10 20 30}
-        if (mapaDados[i][j] == 11 || mapaDados[i][j] == 21 || mapaDados[i][j] == 31)
-        {
-          // VIRA MAR
-          mapaDados[i][j] = 0;
-        }
-        //VERIFICA POSIÇÃO DO PORTO
-        if(!portosLidos){
-          if (mapaDados[i][j] == 1)
-          {
-            // LENDO ARRAY DE PORTOS
-            Portos[countPortos].xPorto = i;
-            Portos[countPortos].yPorto = j;
-            countPortos++;
-            *numeroPortos++;
-          }
-        }
+        return;
       }
     }
-    // lê os dados dos bots
-    scanf(" BOTS %i", &n);
 
-    for (int i = 0; i < n; i++)
-    {
-      scanf("%s %i %i", id, &x, &y);
-      if (strcmp(myId, id) == 0)
-      {
-        *xBot = x;
-        *yBot = y;
-        peixeMaisProximo(mapaDados, &yPeixe, &xPeixe, y, x, h, w);
-        //VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
-      }
-    }
+    count++;
   }
+}
 
-  int main()
+/* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
+void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
+              int *numeroPortos, bool portosLidos)
+{
+  char id[MAX_STR];
+  int n, x, y;
+  int countPortos = 0;
+
+  // lê os dados da área de pesca
+  for (int i = 0; i < h; i++)
   {
-    char line[MAX_STR]; // dados temporários
-    char myId[MAX_STR]; // identificador do bot em questão
-
-    setbuf(stdin, NULL);  // stdin, stdout e stderr não terão buffers
-    setbuf(stdout, NULL); // assim, nada é "guardado temporariamente"
-    setbuf(stderr, NULL);
-
-    // === INÍCIO DA PARTIDA ===
-    int h, w;
-    scanf("AREA %i %i", &h, &w); // lê a dimensão da área de pesca: altura (h) x largura (w)
-    scanf(" ID %s", myId);       // ...e o id do bot
-
-    // CRIANDO MAPA LOCAL
-
-    int **mapaDados = (int **)malloc(sizeof(int *) * h);
-    for (int i = 0; i < w; i++)
-      mapaDados[i] = malloc(sizeof(int) * w);
-
-    // CRIANDO MAPA DE PORTOS
-    struct Porto Portos[MAX_PRT];
-    int numeroPortos = 0;
-    bool portosLidos = false;
-
-    //CRIAR OBJETO DE BARCO E PASSA A MEMORIA
-    int xBot;
-    int yBot;
-    struct Barco meuBarco;
-
-    int xPeixe = -1;
-    int yPeixe = -1;
-
-    // obs: o " " antes de ID é necessário para ler o '\n' da linha anterior
-
-    // Para "debugar", é possível enviar dados para a saída de erro padrão (stderr).
-    // Esse dado não será enviado para o simulador, apenas para o terminal.
-    // A linha seguinte é um exemplo. Pode removê-la se desejar.
-    fprintf(stderr, "Meu id = %s\n", myId);
-
-    // === PARTIDA ===
-    // O bot entra num laço infinito, mas não se preocupe porque o simulador irá matar
-    // o processo quando o jogo terminar.
-    while (1)
+    for (int j = 0; j < w; j++)
     {
+      scanf("%i", &mapaDados[i][j]);
 
-      // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-      readData(h, w, mapaDados, &xBot, &yBot, myId, &xPeixe, &yPeixe, Portos, &numeroPortos, portosLidos);
-      portosLidos = true;
-
-      // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
-
-      // envia a ação escolhida (nesse exemplo, ir para esquerda)
-      printf("RIGHT\n");
-
-      // lê qual foi o resultado da ação (e eventualmente atualiza os dados do bot).
-      scanf("%s", line);
+      //ELIMINA PEIXES NÃO PESCÁVEIS {VERIFICAR SE EH 11 21 31 OU 10 20 30}
+      if (mapaDados[i][j] == 11 || mapaDados[i][j] == 21 || mapaDados[i][j] == 31)
+      {
+        // VIRA MAR
+        mapaDados[i][j] = 0;
+      }
+      //VERIFICA POSIÇÃO DO PORTO
+      if (!portosLidos)
+      {
+        if (mapaDados[i][j] == 1)
+        {
+          // LENDO ARRAY DE PORTOS
+          Portos[countPortos].xPorto = i;
+          Portos[countPortos].yPorto = j;
+          countPortos++;
+          *numeroPortos++;
+        }
+      }
     }
-
-    return 0;
   }
+  // lê os dados dos bots
+  scanf(" BOTS %i", &n);
+
+  for (int i = 0; i < n; i++)
+  {
+    scanf("%s %i %i", id, &x, &y);
+    if (strcmp(meuBarco->id, id) == 0)
+    {
+      meuBarco->xBot = x;
+      meuBarco->yBot = y;
+      peixeMaisProximo(mapaDados, meuBarco, h, w);
+      //VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
+    }
+  }
+}
+
+int main()
+{
+  char line[MAX_STR]; // dados temporários
+  char myId[MAX_STR]; // identificador do bot em questão
+
+  setbuf(stdin, NULL);  // stdin, stdout e stderr não terão buffers
+  setbuf(stdout, NULL); // assim, nada é "guardado temporariamente"
+  setbuf(stderr, NULL);
+
+  // === INÍCIO DA PARTIDA ===
+  int h, w;
+  scanf("AREA %i %i", &h, &w); // lê a dimensão da área de pesca: altura (h) x largura (w)
+  scanf(" ID %s", myId);       // ...e o id do bot
+
+  // CRIANDO MAPA LOCAL
+
+  int **mapaDados = (int **)malloc(sizeof(int *) * h);
+  for (int i = 0; i < w; i++)
+    mapaDados[i] = malloc(sizeof(int) * w);
+
+  // CRIANDO MAPA DE PORTOS
+  struct Porto Portos[MAX_PRT];
+  int numeroPortos = 0;
+  bool portosLidos = false;
+
+  //CRIAR OBJETO DE BARCO E PASSA A MEMORIA
+  struct Barco meuBarco;
+  strcpy(meuBarco.id, myId);
+  meuBarco.pesoAtual = 0;
+  meuBarco.xPortoProximo = -1;
+  meuBarco.yPortoProximo = -1;
+  meuBarco.xPeixeProximo = -1;
+  meuBarco.yPeixeProximo = -1;
+
+  // !pescar = vender
+  bool pescar = true;
+
+  // obs: o " " antes de ID é necessário para ler o '\n' da linha anterior
+
+  // Para "debugar", é possível enviar dados para a saída de erro padrão (stderr).
+  // Esse dado não será enviado para o simulador, apenas para o terminal.
+  // A linha seguinte é um exemplo. Pode removê-la se desejar.
+  fprintf(stderr, "Meu id = %s\n", myId);
+
+  // === PARTIDA ===
+  // O bot entra num laço infinito, mas não se preocupe porque o simulador irá matar
+  // o processo quando o jogo terminar.
+  while (1)
+  {
+
+    // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
+    readData(h, w, mapaDados, &meuBarco, Portos, &numeroPortos, portosLidos);
+    portosLidos = true;
+    
+    executarProximaAcao(&meuBarco, mapaDados, &pescar);
+
+    // fprintf(stderr, "Meu id = %s\n", meuBarco.id);
+
+    // LOGICA ESCOLHA
+    printf("RIGHT\n");
+
+    scanf("%s", line);
+  }
+
+  return 0;
+}
