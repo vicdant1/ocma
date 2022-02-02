@@ -127,10 +127,19 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
         if (mapaDados[i][j] == 1)
         {
           //CRIAR MATRIZ DE PORTOS E ADICIONAR O PORTO
-          Portos = (Porto*) realloc(Portos, sizeof(Porto) * (countPortos+1));
-          Portos[countPortos].xPorto = i;
-          Portos[countPortos].yPorto = j;
-          countPortos++;
+          if (countPortos==0)
+          {
+            Portos[countPortos].xPorto = i;
+            Portos[countPortos].yPorto = j;
+            countPortos++;
+          }
+          else{
+            Portos = (Porto*) realloc(Portos, sizeof(Porto) * (countPortos+1));
+            Portos[countPortos].xPorto = i;
+            Portos[countPortos].yPorto = j;
+            countPortos++;  
+          }
+          
         }
       }
     }
@@ -199,7 +208,7 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
       // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
       // envia a ação escolhida (nesse exemplo, ir para esquerda)
-      printf("RIGHT\n");
+      printf("LEFT\n");
 
       // lê qual foi o resultado da ação (e eventualmente atualiza os dados do bot).
       scanf("%s", line);
