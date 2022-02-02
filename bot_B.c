@@ -103,10 +103,12 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
   }
 
   /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
-  void readData(int h, int w, int **mapaDados, int *xBot, int *yBot, char myId[MAX_STR], int *yPeixe, int *xPeixe)
+  void readData(int h, int w, int **mapaDados, int *xBot, int *yBot,
+                char myId[MAX_STR], int *yPeixe, int *xPeixe, Porto* Portos)
   {
     char id[MAX_STR];
     int n, x, y;
+    int countPortos = 0;
 
     // lê os dados da área de pesca
     for (int i = 0; i < h; i++)
@@ -125,6 +127,10 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
         if (mapaDados[i][j] == 1)
         {
           //CRIAR MATRIZ DE PORTOS E ADICIONAR O PORTO
+          Portos = (Porto*) realloc(Portos, sizeof(Porto) * (countPortos+1));
+          Portos[countPortos].xPorto = i;
+          Portos[countPortos].yPorto = j;
+          countPortos++;
         }
       }
     }
@@ -164,6 +170,9 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
     for (int i = 0; i < w; i++)
       mapaDados[i] = malloc(sizeof(int) * w);
 
+    // CRIANDO MAPA DE PORTOS
+    struct Porto Portos[1];
+    
     //CRIAR OBJETO DE BARCO E PASSA A MEMORIA
     int xBot;
     int yBot;
@@ -185,7 +194,7 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
     {
 
       // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-      readData(h, w, mapaDados, &xBot, &yBot, myId, &xPeixe, &yPeixe);
+      readData(h, w, mapaDados, &xBot, &yBot, myId, &xPeixe, &yPeixe, Portos);
 
       // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
