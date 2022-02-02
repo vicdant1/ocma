@@ -127,10 +127,10 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
         if (mapaDados[i][j] == 1)
         {
           //CRIAR MATRIZ DE PORTOS E ADICIONAR O PORTO
-          Portos = (Porto*) realloc(Portos, sizeof(Porto) * (countPortos+1));
           Portos[countPortos].xPorto = i;
           Portos[countPortos].yPorto = j;
           countPortos++;
+          // Portos = (Porto*) realloc(Portos, sizeof(Porto) * (countPortos+1)); estudar como realocar corretamente
         }
       }
     }
@@ -171,7 +171,7 @@ void peixeMaisProximo(int **mapaDados, int *yPeixe, int *xPeixe, int yBot, int x
       mapaDados[i] = malloc(sizeof(int) * w);
 
     // CRIANDO MAPA DE PORTOS
-    struct Porto Portos[1];
+    struct Porto Portos[10];
     
     //CRIAR OBJETO DE BARCO E PASSA A MEMORIA
     int xBot;
