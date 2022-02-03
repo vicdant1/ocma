@@ -52,7 +52,7 @@ int main() {
     // INSIRA UMA LÓGICA PARA ESCOLHER UMA AÇÃO A SER EXECUTADA
 
     // envia a ação escolhida (nesse exemplo, ir para esquerda)
-    printf("LEFT\n");
+    printf("DOWN\n");
 
     // lê qual foi o resultado da ação (e eventualmente atualiza os dados do bot).
     scanf("%s", line);
