@@ -61,19 +61,26 @@ void cmdVender()
 
 void moverX(Barco meuBarco, bool pescar)
 {
-  if(pescar){
-    if(meuBarco.xBot < meuBarco.xPeixeProximo){
+  if (pescar)
+  {
+    fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
+    if (meuBarco.xBot < meuBarco.xPeixeProximo)
+    {
       movimentaDireita();
     }
-    else{
+    else
+    {
       movimentaEsquerda();
     }
   }
-  else{
-    if(meuBarco.xBot < meuBarco.xPortoProximo){
+  else
+  {
+    if (meuBarco.xBot < meuBarco.xPortoProximo)
+    {
       movimentaDireita();
     }
-    else{
+    else
+    {
       movimentaEsquerda();
     }
   }
@@ -81,19 +88,25 @@ void moverX(Barco meuBarco, bool pescar)
 
 void moverY(Barco meuBarco, bool pescar)
 {
-  if(pescar){
-    if(meuBarco.yBot < meuBarco.yPeixeProximo){
+  if (pescar)
+  {
+    if (meuBarco.yBot < meuBarco.yPeixeProximo)
+    {
       movimentaBaixo();
     }
-    else{
+    else
+    {
       movimentaCima();
     }
   }
-  else{
-    if(meuBarco.yBot < meuBarco.yPortoProximo){
+  else
+  {
+    if (meuBarco.yBot < meuBarco.yPortoProximo)
+    {
       movimentaBaixo();
     }
-    else{
+    else
+    {
       movimentaCima();
     }
   }
@@ -101,35 +114,43 @@ void moverY(Barco meuBarco, bool pescar)
 
 void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar)
 {
-  if (*pescar && meuBarco->pesoAtual <= 10)
+  if (*pescar && meuBarco->pesoAtual < 10)
   {
     if (meuBarco->xBot != meuBarco->xPeixeProximo)
     {
-      moverX(*meuBarco, pescar);
+      moverX(*meuBarco, *pescar);
     }
-    else if(meuBarco->yBot != meuBarco->yPeixeProximo)
+    else if (meuBarco->yBot != meuBarco->yPeixeProximo)
     {
-      moverY(*meuBarco, pescar);
+      moverY(*meuBarco, *pescar);
     }
-    else{
-      // if(mapaDados[meuBarco->xPeixeProximo][meuBarco->yPeixeProximo] > 11 &&)
+    else
+    {
       cmdPescar();
-      meuBarco->pesoAtual ++;
-      if(meuBarco->pesoAtual == 10){
+      meuBarco->pesoAtual++;
+      if (meuBarco->pesoAtual == 10)
+      {
+        fprintf(stderr, "PESO ATUAL: %i\n", meuBarco->pesoAtual);
         *pescar = false;
         meuBarco->xPeixeProximo = -1;
         meuBarco->yPeixeProximo = -1;
       }
     }
   }
-  else{
-    if(meuBarco->xBot != meuBarco->xPortoProximo){
-      moverX(*meuBarco, pescar);
+  else
+  {
+    if (meuBarco->xBot != meuBarco->xPortoProximo)
+    {
+      // fprintf(stderr, "ir ao porto EM X barco: %i  porto: %i\n ", meuBarco->xBot, meuBarco->xPortoProximo);
+
+      moverX(*meuBarco, *pescar);
     }
-    else if(meuBarco->yBot != meuBarco->yPortoProximo){
-      moverY(*meuBarco, pescar);
+    else if (meuBarco->yBot != meuBarco->yPortoProximo)
+    {
+      moverY(*meuBarco, *pescar);
     }
-    else{
+    else
+    {
       cmdVender();
       meuBarco->pesoAtual = 0;
       *pescar = true;
@@ -173,14 +194,10 @@ void calcularPortoMaisProximo(Barco *meuBarco, Porto *Portos, int numeroPortos)
 
 bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
 {
-  int conteudoPosicaoAtualBot = mapaDados[xAlvo][yAlvo];
-  // fprintf(stderr, "Meu id = %s\n", meuBarco.id);
+  // matriz do professor estava espelhada x = y y = x
+  int conteudoPosicaoAtualBot = mapaDados[yAlvo][xAlvo]; 
 
-  if (
-      ((conteudoPosicaoAtualBot > 11 && conteudoPosicaoAtualBot < 20) ||
-      (conteudoPosicaoAtualBot > 21 && conteudoPosicaoAtualBot < 30) ||
-      (conteudoPosicaoAtualBot > 31 && conteudoPosicaoAtualBot < 40))
-    )
+  if (conteudoPosicaoAtualBot > 11 && conteudoPosicaoAtualBot < 40)
   {
     return true;
   }
@@ -191,21 +208,29 @@ bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
 void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
 {
   bool nasceuEncimaDePeixe = temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot);
+  meuBarco->xPeixeProximo = -1;
+  meuBarco->yPeixeProximo = -1;
+
+  // if(nasceuEncimaDePeixe)
+    // fprintf(stderr, "\nNASCEU ENCIMA \n\n");
+
+
   int count = 1;
   int rangeX = w - 1;
   int rangeY = h - 1;
-  
-  if (nasceuEncimaDePeixe)
+
+  if (nasceuEncimaDePeixe && temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot))
   {
     meuBarco->xPeixeProximo = meuBarco->xBot;
     meuBarco->yPeixeProximo = meuBarco->yBot;
     return;
   }
-  else{
+  else
+  {
     while (meuBarco->yPeixeProximo == -1 || meuBarco->xPeixeProximo == -1)
     {
-      //IF POSIÇÃO ATUAL DO BOT TIVER PEIXE NA POSIÇÃO DA MATRIZ, PASSA ATUAL
-      // VERIFICA SE JA NASCEU ENCIMA
+      // IF POSIÇÃO ATUAL DO BOT TIVER PEIXE NA POSIÇÃO DA MATRIZ, PASSA ATUAL
+      //  VERIFICA SE JA NASCEU ENCIMA
 
       // está nos limites? (top)
       if (!(meuBarco->yBot - count < 0 || meuBarco->yBot - count > rangeY))
@@ -255,7 +280,6 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
           return;
         }
       }
-
       count++;
     }
   }
@@ -276,13 +300,14 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
     {
       scanf("%i", &mapaDados[i][j]);
 
-      //ELIMINA PEIXES NÃO PESCÁVEIS {VERIFICAR SE EH 11 21 31 OU 10 20 30}
+      // ELIMINA PEIXES NÃO PESCÁVEIS {VERIFICAR SE EH 11 21 31 OU 10 20 30}
       if (mapaDados[i][j] == 11 || mapaDados[i][j] == 21 || mapaDados[i][j] == 31) // VER DEPOIS IMPORTANTE 11 OU 12
       {
+        // fprintf(stderr, "\nvira mar i=%i j=%i \n\n", i, j);
         // VIRA MAR
         mapaDados[i][j] = 0;
       }
-      //VERIFICA POSIÇÃO DO PORTO
+      // VERIFICA POSIÇÃO DO PORTO
       if (!portosLidos)
       {
         if (mapaDados[i][j] == 1)
@@ -290,13 +315,13 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
           // LENDO ARRAY DE PORTOS
           Portos[countPortos].xPorto = j;
           Portos[countPortos].yPorto = i;
-          *numeroPortos = *numeroPortos+1;
+          *numeroPortos = *numeroPortos + 1;
           countPortos++;
         }
       }
     }
   }
-  
+
   // lê os dados dos bots
   scanf(" BOTS %i", &n);
 
@@ -308,7 +333,7 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
       meuBarco->xBot = x;
       meuBarco->yBot = y;
       peixeMaisProximo(mapaDados, meuBarco, h, w);
-      //VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
+      // VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
       calcularPortoMaisProximo(meuBarco, Portos, *numeroPortos);
     }
   }
@@ -339,7 +364,7 @@ int main()
   int numeroPortos = 0;
   bool portosLidos = false;
 
-  //CRIAR OBJETO DE BARCO E PASSA A MEMORIA
+  // CRIAR OBJETO DE BARCO E PASSA A MEMORIA
   struct Barco meuBarco;
   strcpy(meuBarco.id, myId);
   meuBarco.pesoAtual = 0;
@@ -356,7 +381,7 @@ int main()
   // Para "debugar", é possível enviar dados para a saída de erro padrão (stderr).
   // Esse dado não será enviado para o simulador, apenas para o terminal.
   // A linha seguinte é um exemplo. Pode removê-la se desejar.
-  fprintf(stderr, "Meu id = %s\n", myId);
+  // fprintf(stderr, "Meu id = %s\n", myId);
 
   // === PARTIDA ===
   // O bot entra num laço infinito, mas não se preocupe porque o simulador irá matar
@@ -370,16 +395,16 @@ int main()
 
     executarProximaAcao(&meuBarco, mapaDados, &pescar);
 
-    fprintf(stderr, "XBOT: %i YBOT: %i XPEIXE: %i YPEIXE: %i PEIXESQTD: %i XPORTO: %i YPORTO: %i\n\n", meuBarco.xBot, meuBarco.yBot, meuBarco.xPeixeProximo, meuBarco.yPeixeProximo, meuBarco.pesoAtual, meuBarco.xPortoProximo, meuBarco.yPortoProximo);
+    // fprintf(stderr, "XBOT: %i YBOT: %i XPEIXE: %i YPEIXE: %i PEIXESQTD: %i XPORTO: %i YPORTO: %i\n\n", meuBarco.xBot, meuBarco.yBot, meuBarco.xPeixeProximo, meuBarco.yPeixeProximo, meuBarco.pesoAtual, meuBarco.xPortoProximo, meuBarco.yPortoProximo);
 
-    for(int i=0; i<h; i++)
-    {
-      for(int j =0; j<w; j++)
-      {
-        fprintf(stderr, "%i  ", mapaDados[i][j]);
-      }
-      fprintf(stderr, "\n");
-    }
+    // for (int i = 0; i < h; i++)
+    // {
+    //   for (int j = 0; j < w; j++)
+    //   {
+    //     fprintf(stderr, "%i  ", mapaDados[i][j]);
+    //   }
+    //   fprintf(stderr, "\n");
+    // }
 
     // fprintf(stderr, "Meu id = %s\n", meuBarco.id);
 
