@@ -84,6 +84,82 @@ bool verificaBarcoProximaPosicao(Barco meuBarco, Barco *BarcosRivais, int qtdBar
   return false;
 }
 
+void moverX2(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
+{
+  bool temBarcoProximo = false;
+  int somaOuSubtrai = 0;
+
+  if (pescar)
+  {
+    // fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
+    if (meuBarco.xBot < meuBarco.xPeixeProximo)
+    {
+      somaOuSubtrai = 1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaDireita();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else if (meuBarco.xBot > meuBarco.xPeixeProximo)
+    {
+      somaOuSubtrai = -1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaEsquerda();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else
+    {
+      if (!(meuBarco.xBot - 1 < 0))
+      {
+        movimentaEsquerda();
+      }
+      else
+      {
+        movimentaDireita();
+      }
+    }
+  }
+  else
+  {
+    if (meuBarco.xBot < meuBarco.xPortoProximo)
+    {
+      somaOuSubtrai = 1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaDireita();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else if (meuBarco.xBot > meuBarco.xPortoProximo)
+    {
+      somaOuSubtrai = -1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaEsquerda();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else
+    {
+      if (!(meuBarco.xBot - 1 < 0))
+      {
+        movimentaEsquerda();
+      }
+      else
+      {
+        movimentaDireita();
+      }
+    }
+  }
+}
+
 void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
 {
   int somaOuSubtrai = 0;
@@ -98,7 +174,7 @@ void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivai
       if (!temBarcoProximo)
         movimentaBaixo();
       else
-        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
     }
     else if (meuBarco.yBot > meuBarco.yPeixeProximo)
     {
@@ -108,7 +184,7 @@ void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivai
       if (!temBarcoProximo)
         movimentaCima();
       else
-        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
     }
     else
     {
@@ -132,7 +208,7 @@ void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivai
       if (!temBarcoProximo)
         movimentaBaixo();
       else
-        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
     }
     else if (meuBarco.yBot > meuBarco.yPortoProximo)
     {
@@ -142,7 +218,7 @@ void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivai
       if (!temBarcoProximo)
         movimentaCima();
       else
-        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
     }
     else
     {
