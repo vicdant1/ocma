@@ -6,6 +6,7 @@
 
 #define MAX_STR 50
 #define MAX_PRT 25
+#define MAX_BOTS 10
 #define MAX_WEIGHT 10
 
 typedef struct Porto
@@ -59,70 +60,191 @@ void cmdVender()
   printf("SELL\n");
 }
 
-void moverX(Barco meuBarco, bool pescar)
+bool verificaBarcoProximaPosicao(Barco meuBarco, Barco *BarcosRivais, int qtdBarcosRivais, int somaOuSubtrai, bool eixoProblema)
 {
-  if (pescar)
+  // eixoProblema criado para saber qual eh o eixo bloqueado, true = x, false = y;
+  for (int i = 0; i < qtdBarcosRivais; i++)
   {
-    fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
-    if (meuBarco.xBot < meuBarco.xPeixeProximo)
+    if (eixoProblema)
     {
-      movimentaDireita();
+      if ((meuBarco.xBot + somaOuSubtrai == BarcosRivais[i].xBot && meuBarco.yBot == BarcosRivais[i].yBot) && (meuBarco.xBot + somaOuSubtrai != meuBarco.xPortoProximo && meuBarco.yBot != meuBarco.yPortoProximo))
+      {
+        return true;
+      }
     }
     else
     {
-      movimentaEsquerda();
+      if (meuBarco.xBot == BarcosRivais[i].xBot && meuBarco.yBot + somaOuSubtrai == BarcosRivais[i].yBot)
+      {
+        return true;
+      }
     }
   }
-  else
-  {
-    if (meuBarco.xBot < meuBarco.xPortoProximo)
-    {
-      movimentaDireita();
-    }
-    else
-    {
-      movimentaEsquerda();
-    }
-  }
+
+  return false;
 }
 
-void moverY(Barco meuBarco, bool pescar)
+void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
 {
+  int somaOuSubtrai = 0;
+  bool temBarcoProximo = false;
   if (pescar)
   {
     if (meuBarco.yBot < meuBarco.yPeixeProximo)
     {
-      movimentaBaixo();
+      somaOuSubtrai = 1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
+
+      if (!temBarcoProximo)
+        movimentaBaixo();
+      else
+        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else if (meuBarco.yBot > meuBarco.yPeixeProximo)
+    {
+      somaOuSubtrai = -1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
+
+      if (!temBarcoProximo)
+        movimentaCima();
+      else
+        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
     }
     else
     {
-      movimentaCima();
+      if (!(meuBarco.yBot - 1 < 0))
+      {
+        movimentaCima();
+      }
+      else
+      {
+        movimentaBaixo();
+      }
     }
   }
   else
   {
     if (meuBarco.yBot < meuBarco.yPortoProximo)
     {
-      movimentaBaixo();
+      somaOuSubtrai = 1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
+
+      if (!temBarcoProximo)
+        movimentaBaixo();
+      else
+        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else if (meuBarco.yBot > meuBarco.yPortoProximo)
+    {
+      somaOuSubtrai = -1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
+
+      if (!temBarcoProximo)
+        movimentaCima();
+      else
+        moverX(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
     }
     else
     {
-      movimentaCima();
+      if (!(meuBarco.yBot - 1 < 0))
+      {
+        movimentaCima();
+      }
+      else
+      {
+        movimentaBaixo();
+      }
     }
   }
 }
 
-void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar)
+void moverX(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
+{
+  bool temBarcoProximo = false;
+  int somaOuSubtrai = 0;
+
+  if (pescar)
+  {
+    // fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
+    if (meuBarco.xBot < meuBarco.xPeixeProximo)
+    {
+      somaOuSubtrai = 1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaDireita();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else if (meuBarco.xBot > meuBarco.xPeixeProximo)
+    {
+      somaOuSubtrai = -1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaEsquerda();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else
+    {
+      if (!(meuBarco.xBot - 1 < 0))
+      {
+        movimentaEsquerda();
+      }
+      else
+      {
+        movimentaDireita();
+      }
+    }
+  }
+  else
+  {
+    if (meuBarco.xBot < meuBarco.xPortoProximo)
+    {
+      somaOuSubtrai = 1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaDireita();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else if (meuBarco.xBot > meuBarco.xPortoProximo)
+    {
+      somaOuSubtrai = -1;
+      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
+
+      if (!temBarcoProximo)
+        movimentaEsquerda();
+      else
+        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+    }
+    else
+    {
+      if (!(meuBarco.xBot - 1 < 0))
+      {
+        movimentaEsquerda();
+      }
+      else
+      {
+        movimentaDireita();
+      }
+    }
+  }
+}
+
+void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar, Barco *BarcosRivais, int qtdBarcosRivais)
 {
   if (*pescar && meuBarco->pesoAtual < 10)
   {
     if (meuBarco->xBot != meuBarco->xPeixeProximo)
     {
-      moverX(*meuBarco, *pescar);
+      moverX(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
     }
     else if (meuBarco->yBot != meuBarco->yPeixeProximo)
     {
-      moverY(*meuBarco, *pescar);
+      moverY(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
     }
     else
     {
@@ -130,7 +252,7 @@ void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar)
       meuBarco->pesoAtual++;
       if (meuBarco->pesoAtual == 10)
       {
-        fprintf(stderr, "PESO ATUAL: %i\n", meuBarco->pesoAtual);
+        // fprintf(stderr, "PESO ATUAL: %i\n", meuBarco->pesoAtual);
         *pescar = false;
         meuBarco->xPeixeProximo = -1;
         meuBarco->yPeixeProximo = -1;
@@ -143,11 +265,11 @@ void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar)
     {
       // fprintf(stderr, "ir ao porto EM X barco: %i  porto: %i\n ", meuBarco->xBot, meuBarco->xPortoProximo);
 
-      moverX(*meuBarco, *pescar);
+      moverX(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
     }
     else if (meuBarco->yBot != meuBarco->yPortoProximo)
     {
-      moverY(*meuBarco, *pescar);
+      moverY(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
     }
     else
     {
@@ -195,7 +317,7 @@ void calcularPortoMaisProximo(Barco *meuBarco, Porto *Portos, int numeroPortos)
 bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
 {
   // matriz do professor estava espelhada x = y y = x
-  int conteudoPosicaoAtualBot = mapaDados[yAlvo][xAlvo]; 
+  int conteudoPosicaoAtualBot = mapaDados[yAlvo][xAlvo];
 
   if (conteudoPosicaoAtualBot > 11 && conteudoPosicaoAtualBot < 40)
   {
@@ -212,8 +334,7 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
   meuBarco->yPeixeProximo = -1;
 
   // if(nasceuEncimaDePeixe)
-    // fprintf(stderr, "\nNASCEU ENCIMA \n\n");
-
+  // fprintf(stderr, "\nNASCEU ENCIMA \n\n");
 
   int count = 1;
   int rangeX = w - 1;
@@ -287,11 +408,12 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
 
 /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
 void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
-              int *numeroPortos, bool portosLidos)
+              int *numeroPortos, bool portosLidos, Barco *BarcosRivais, int *qtdBarcosRivais)
 {
   char id[MAX_STR];
   int n, x, y;
   int countPortos = 0;
+  int countBarcosRivais = 0;
 
   // lê os dados da área de pesca
   for (int i = 0; i < h; i++)
@@ -324,6 +446,7 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
 
   // lê os dados dos bots
   scanf(" BOTS %i", &n);
+  *qtdBarcosRivais = n - 1;
 
   for (int i = 0; i < n; i++)
   {
@@ -335,6 +458,13 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
       peixeMaisProximo(mapaDados, meuBarco, h, w);
       // VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
       calcularPortoMaisProximo(meuBarco, Portos, *numeroPortos);
+    }
+    else
+    {
+      BarcosRivais[countBarcosRivais].xBot = x;
+      BarcosRivais[countBarcosRivais].yBot = y;
+
+      countBarcosRivais++;
     }
   }
 }
@@ -353,6 +483,8 @@ int main()
   scanf("AREA %i %i", &h, &w); // lê a dimensão da área de pesca: altura (h) x largura (w)
   scanf(" ID %s", myId);       // ...e o id do bot
 
+  int qtdBarcosRivais = 0;
+
   // CRIANDO MAPA LOCAL
 
   int **mapaDados = (int **)malloc(sizeof(int *) * h);
@@ -363,6 +495,9 @@ int main()
   struct Porto Portos[MAX_PRT];
   int numeroPortos = 0;
   bool portosLidos = false;
+
+  // CRIANDO MAPA DE BARCOS
+  struct Barco BarcosRivais[MAX_BOTS];
 
   // CRIAR OBJETO DE BARCO E PASSA A MEMORIA
   struct Barco meuBarco;
@@ -390,25 +525,10 @@ int main()
   {
 
     // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-    readData(h, w, mapaDados, &meuBarco, Portos, &numeroPortos, portosLidos);
+    readData(h, w, mapaDados, &meuBarco, Portos, &numeroPortos, portosLidos, BarcosRivais, &qtdBarcosRivais);
     portosLidos = true;
 
-    executarProximaAcao(&meuBarco, mapaDados, &pescar);
-
-    // fprintf(stderr, "XBOT: %i YBOT: %i XPEIXE: %i YPEIXE: %i PEIXESQTD: %i XPORTO: %i YPORTO: %i\n\n", meuBarco.xBot, meuBarco.yBot, meuBarco.xPeixeProximo, meuBarco.yPeixeProximo, meuBarco.pesoAtual, meuBarco.xPortoProximo, meuBarco.yPortoProximo);
-
-    // for (int i = 0; i < h; i++)
-    // {
-    //   for (int j = 0; j < w; j++)
-    //   {
-    //     fprintf(stderr, "%i  ", mapaDados[i][j]);
-    //   }
-    //   fprintf(stderr, "\n");
-    // }
-
-    // fprintf(stderr, "Meu id = %s\n", meuBarco.id);
-
-    // LOGICA ESCOLHA
+    executarProximaAcao(&meuBarco, mapaDados, &pescar, BarcosRivais, qtdBarcosRivais);
 
     scanf("%s", line);
   }
