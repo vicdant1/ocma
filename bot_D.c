@@ -6,7 +6,6 @@
 
 #define MAX_STR 50
 #define MAX_PRT 25
-#define MAX_BOTS 10
 #define MAX_WEIGHT 10
 
 typedef struct Porto
@@ -30,305 +29,155 @@ typedef struct Barco
 
 } Barco;
 
-void movimentaCima()
+void movimentaCima(Barco *meuBarco)
 {
-  printf("UP\n");
+ 
+
+    // open the file for writing
+    FILE *fp = fopen("LogBots.txt", "a");
+    
+    // write to the text file
+    fprintf(fp, "\nBot D Andou Cima \n");
+
+    // close the file
+    fclose(fp);
+    
+    printf("UP\n");
 }
 
-void movimentaBaixo()
+void movimentaBaixo(Barco *meuBarco)
 {
+    FILE *fp = fopen("LogBots.txt", "a");
+    
+    // write to the text file
+    fprintf(fp, "\nBot D Andou Baixo \n");
+
+    // close the file
+    fclose(fp);
   printf("DOWN\n");
 }
 
-void movimentaDireita()
+void movimentaDireita(Barco *meuBarco)
 {
+      FILE *fp = fopen("LogBots.txt", "a");
+    
+    // write to the text file
+    fprintf(fp, "\nBot D Andou Direita \n");
+
+    // close the file
+    fclose(fp);
   printf("RIGHT\n");
 }
 
-void movimentaEsquerda()
+void movimentaEsquerda(Barco *meuBarco)
 {
+  FILE *fp = fopen("LogBots.txt", "a");
+    
+    // write to the text file
+    fprintf(fp, "\nBot D Andou Esquerda \n");
+
+    // close the file
+    fclose(fp);
   printf("LEFT\n");
 }
 
-void cmdPescar()
+void cmdPescar(Barco *meuBarco)
 {
+   FILE *fp = fopen("LogBots.txt", "a");
+    
+    // write to the text file
+    fprintf(fp, "\nBot D Pescou \n");
+
+    // close the file
+    fclose(fp);
   printf("FISH\n");
 }
 
-void cmdVender()
+void cmdVender(Barco *meuBarco)
 {
+ 
+   FILE *fp = fopen("LogBots.txt", "a");
+    
+    // write to the text file
+    fprintf(fp, "\nBot D Vendeu \n");
+
+    // close the file
+    fclose(fp);
   printf("SELL\n");
 }
 
-bool verificaBarcoProximaPosicao(Barco meuBarco, Barco *BarcosRivais, int qtdBarcosRivais, int somaOuSubtrai, bool eixoProblema)
+void moverX(Barco meuBarco, bool pescar)
 {
-  // eixoProblema criado para saber qual eh o eixo bloqueado, true = x, false = y;
-  for (int i = 0; i < qtdBarcosRivais; i++)
-  {
-    if (eixoProblema)
-    {
-      if ((meuBarco.xBot + somaOuSubtrai == BarcosRivais[i].xBot && meuBarco.yBot == BarcosRivais[i].yBot) && (meuBarco.xBot + somaOuSubtrai != meuBarco.xPortoProximo && meuBarco.yBot != meuBarco.yPortoProximo))
-      {
-        return true;
-      }
-    }
-    else
-    {
-      if (meuBarco.xBot == BarcosRivais[i].xBot && meuBarco.yBot + somaOuSubtrai == BarcosRivais[i].yBot)
-      {
-        return true;
-      }
-    }
-  }
-
-  return false;
-}
-
-void moverX2(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
-{
-  bool temBarcoProximo = false;
-  int somaOuSubtrai = 0;
-
   if (pescar)
   {
-    // fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
+    fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
     if (meuBarco.xBot < meuBarco.xPeixeProximo)
     {
-      somaOuSubtrai = 1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaDireita();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else if (meuBarco.xBot > meuBarco.xPeixeProximo)
-    {
-      somaOuSubtrai = -1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaEsquerda();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+      movimentaDireita(&meuBarco);
     }
     else
     {
-      if (!(meuBarco.xBot - 1 < 0))
-      {
-        movimentaEsquerda();
-      }
-      else
-      {
-        movimentaDireita();
-      }
+      movimentaEsquerda(&meuBarco);
     }
   }
   else
   {
     if (meuBarco.xBot < meuBarco.xPortoProximo)
     {
-      somaOuSubtrai = 1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaDireita();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else if (meuBarco.xBot > meuBarco.xPortoProximo)
-    {
-      somaOuSubtrai = -1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaEsquerda();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+      movimentaDireita(&meuBarco);
     }
     else
     {
-      if (!(meuBarco.xBot - 1 < 0))
-      {
-        movimentaEsquerda();
-      }
-      else
-      {
-        movimentaDireita();
-      }
+      movimentaEsquerda(&meuBarco);
     }
   }
 }
 
-void moverY(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
+void moverY(Barco meuBarco, bool pescar)
 {
-  int somaOuSubtrai = 0;
-  bool temBarcoProximo = false;
   if (pescar)
   {
     if (meuBarco.yBot < meuBarco.yPeixeProximo)
     {
-      somaOuSubtrai = 1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
-
-      if (!temBarcoProximo)
-        movimentaBaixo();
-      else
-        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else if (meuBarco.yBot > meuBarco.yPeixeProximo)
-    {
-      somaOuSubtrai = -1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
-
-      if (!temBarcoProximo)
-        movimentaCima();
-      else
-        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+      movimentaBaixo(&meuBarco);
     }
     else
     {
-      if (!(meuBarco.yBot - 1 < 0))
-      {
-        movimentaCima();
-      }
-      else
-      {
-        movimentaBaixo();
-      }
+      movimentaCima(&meuBarco);
     }
   }
   else
   {
     if (meuBarco.yBot < meuBarco.yPortoProximo)
     {
-      somaOuSubtrai = 1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
-
-      if (!temBarcoProximo)
-        movimentaBaixo();
-      else
-        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else if (meuBarco.yBot > meuBarco.yPortoProximo)
-    {
-      somaOuSubtrai = -1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, false);
-
-      if (!temBarcoProximo)
-        movimentaCima();
-      else
-        moverX2(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
+      movimentaBaixo(&meuBarco);
     }
     else
     {
-      if (!(meuBarco.yBot - 1 < 0))
-      {
-        movimentaCima();
-      }
-      else
-      {
-        movimentaBaixo();
-      }
+      movimentaCima(&meuBarco);
     }
   }
 }
 
-void moverX(Barco meuBarco, bool pescar, Barco *BarcosRivais, int qtdBarcosRivais)
-{
-  bool temBarcoProximo = false;
-  int somaOuSubtrai = 0;
-
-  if (pescar)
-  {
-    // fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
-    if (meuBarco.xBot < meuBarco.xPeixeProximo)
-    {
-      somaOuSubtrai = 1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaDireita();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else if (meuBarco.xBot > meuBarco.xPeixeProximo)
-    {
-      somaOuSubtrai = -1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaEsquerda();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else
-    {
-      if (!(meuBarco.xBot - 1 < 0))
-      {
-        movimentaEsquerda();
-      }
-      else
-      {
-        movimentaDireita();
-      }
-    }
-  }
-  else
-  {
-    if (meuBarco.xBot < meuBarco.xPortoProximo)
-    {
-      somaOuSubtrai = 1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaDireita();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else if (meuBarco.xBot > meuBarco.xPortoProximo)
-    {
-      somaOuSubtrai = -1;
-      temBarcoProximo = verificaBarcoProximaPosicao(meuBarco, BarcosRivais, qtdBarcosRivais, somaOuSubtrai, true);
-
-      if (!temBarcoProximo)
-        movimentaEsquerda();
-      else
-        moverY(meuBarco, pescar, BarcosRivais, qtdBarcosRivais);
-    }
-    else
-    {
-      if (!(meuBarco.xBot - 1 < 0))
-      {
-        movimentaEsquerda();
-      }
-      else
-      {
-        movimentaDireita();
-      }
-    }
-  }
-}
-
-void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar, Barco *BarcosRivais, int qtdBarcosRivais)
+void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar)
 {
   if (*pescar && meuBarco->pesoAtual < 10)
   {
     if (meuBarco->xBot != meuBarco->xPeixeProximo)
     {
-      moverX(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
+      moverX(*meuBarco, *pescar);
     }
     else if (meuBarco->yBot != meuBarco->yPeixeProximo)
     {
-      moverY(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
+      moverY(*meuBarco, *pescar);
     }
     else
     {
-      cmdPescar();
+      cmdPescar(meuBarco);
       meuBarco->pesoAtual++;
       if (meuBarco->pesoAtual == 10)
       {
-        // fprintf(stderr, "PESO ATUAL: %i\n", meuBarco->pesoAtual);
+        fprintf(stderr, "PESO ATUAL: %i\n", meuBarco->pesoAtual);
         *pescar = false;
         meuBarco->xPeixeProximo = -1;
         meuBarco->yPeixeProximo = -1;
@@ -341,15 +190,15 @@ void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar, Barco *
     {
       // fprintf(stderr, "ir ao porto EM X barco: %i  porto: %i\n ", meuBarco->xBot, meuBarco->xPortoProximo);
 
-      moverX(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
+      moverX(*meuBarco, *pescar);
     }
     else if (meuBarco->yBot != meuBarco->yPortoProximo)
     {
-      moverY(*meuBarco, *pescar, BarcosRivais, qtdBarcosRivais);
+      moverY(*meuBarco, *pescar);
     }
     else
     {
-      cmdVender();
+      cmdVender(meuBarco);
       meuBarco->pesoAtual = 0;
       *pescar = true;
     }
@@ -393,7 +242,7 @@ void calcularPortoMaisProximo(Barco *meuBarco, Porto *Portos, int numeroPortos)
 bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
 {
   // matriz do professor estava espelhada x = y y = x
-  int conteudoPosicaoAtualBot = mapaDados[yAlvo][xAlvo];
+  int conteudoPosicaoAtualBot = mapaDados[yAlvo][xAlvo]; 
 
   if (conteudoPosicaoAtualBot > 11 && conteudoPosicaoAtualBot < 40)
   {
@@ -410,7 +259,8 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
   meuBarco->yPeixeProximo = -1;
 
   // if(nasceuEncimaDePeixe)
-  // fprintf(stderr, "\nNASCEU ENCIMA \n\n");
+    // fprintf(stderr, "\nNASCEU ENCIMA \n\n");
+
 
   int count = 1;
   int rangeX = w - 1;
@@ -484,12 +334,11 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
 
 /* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
 void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
-              int *numeroPortos, bool portosLidos, Barco *BarcosRivais, int *qtdBarcosRivais)
+              int *numeroPortos, bool portosLidos)
 {
   char id[MAX_STR];
   int n, x, y;
   int countPortos = 0;
-  int countBarcosRivais = 0;
 
   // lê os dados da área de pesca
   for (int i = 0; i < h; i++)
@@ -522,7 +371,6 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
 
   // lê os dados dos bots
   scanf(" BOTS %i", &n);
-  *qtdBarcosRivais = n - 1;
 
   for (int i = 0; i < n; i++)
   {
@@ -534,13 +382,6 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
       peixeMaisProximo(mapaDados, meuBarco, h, w);
       // VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
       calcularPortoMaisProximo(meuBarco, Portos, *numeroPortos);
-    }
-    else
-    {
-      BarcosRivais[countBarcosRivais].xBot = x;
-      BarcosRivais[countBarcosRivais].yBot = y;
-
-      countBarcosRivais++;
     }
   }
 }
@@ -559,8 +400,6 @@ int main()
   scanf("AREA %i %i", &h, &w); // lê a dimensão da área de pesca: altura (h) x largura (w)
   scanf(" ID %s", myId);       // ...e o id do bot
 
-  int qtdBarcosRivais = 0;
-
   // CRIANDO MAPA LOCAL
 
   int **mapaDados = (int **)malloc(sizeof(int *) * h);
@@ -571,9 +410,6 @@ int main()
   struct Porto Portos[MAX_PRT];
   int numeroPortos = 0;
   bool portosLidos = false;
-
-  // CRIANDO MAPA DE BARCOS
-  struct Barco BarcosRivais[MAX_BOTS];
 
   // CRIAR OBJETO DE BARCO E PASSA A MEMORIA
   struct Barco meuBarco;
@@ -597,14 +433,41 @@ int main()
   // === PARTIDA ===
   // O bot entra num laço infinito, mas não se preocupe porque o simulador irá matar
   // o processo quando o jogo terminar.
+  
+  
+   //Limpa o log da partida anterior
+   
+    // open the file for writing
+    FILE *fp = fopen("LogBots.txt", "w");
+    
+    // write to the text file
+    fprintf(fp, "Projeto de ITP - OCMA\nAlunos: Elbert Natan       - 20210052554\n        João Victor Dantas - 20210054361\n\n***********************************************LOG DE MOVIMENTOS DO BOT***********************************************\n");
+
+    // close the file
+    fclose(fp);
   while (1)
   {
 
     // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
-    readData(h, w, mapaDados, &meuBarco, Portos, &numeroPortos, portosLidos, BarcosRivais, &qtdBarcosRivais);
+    readData(h, w, mapaDados, &meuBarco, Portos, &numeroPortos, portosLidos);
     portosLidos = true;
 
-    executarProximaAcao(&meuBarco, mapaDados, &pescar, BarcosRivais, qtdBarcosRivais);
+    executarProximaAcao(&meuBarco, mapaDados, &pescar);
+
+    // fprintf(stderr, "XBOT: %i YBOT: %i XPEIXE: %i YPEIXE: %i PEIXESQTD: %i XPORTO: %i YPORTO: %i\n\n", meuBarco.xBot, meuBarco.yBot, meuBarco.xPeixeProximo, meuBarco.yPeixeProximo, meuBarco.pesoAtual, meuBarco.xPortoProximo, meuBarco.yPortoProximo);
+
+    // for (int i = 0; i < h; i++)
+    // {
+    //   for (int j = 0; j < w; j++)
+    //   {
+    //     fprintf(stderr, "%i  ", mapaDados[i][j]);
+    //   }
+    //   fprintf(stderr, "\n");
+    // }
+
+    // fprintf(stderr, "Meu id = %s\n", meuBarco.id);
+
+    // LOGICA ESCOLHA
 
     scanf("%s", line);
   }
