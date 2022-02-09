@@ -29,13 +29,17 @@ typedef struct Barco
 
 } Barco;
 
+void desalocarMemoria(int **mapaDados, int w){
+  for (int i = 0; i < w; i++) {
+    free(mapaDados[i]);
+  }
+  free(mapaDados);
+}
+
 void movimentaCima(Barco *meuBarco)
 {
-  // open the file for writing
   FILE *fp = fopen("LogBots.txt", "a");
-  // write to the text file
   fprintf(fp, "\nBot A Andou Cima \n");
-  // close the file
   fclose(fp);
 
   printf("UP\n");
@@ -44,9 +48,7 @@ void movimentaCima(Barco *meuBarco)
 void movimentaBaixo(Barco *meuBarco)
 {
   FILE *fp = fopen("LogBots.txt", "a");
-  // write to the text file
   fprintf(fp, "\nBot A Andou Baixo \n");
-  // close the file
   fclose(fp);
 
   printf("DOWN\n");
@@ -55,9 +57,7 @@ void movimentaBaixo(Barco *meuBarco)
 void movimentaDireita(Barco *meuBarco)
 {
   FILE *fp = fopen("LogBots.txt", "a");
-  // write to the text file
   fprintf(fp, "\nBot A Andou Direita \n");
-  // close the file
   fclose(fp);
 
   printf("RIGHT\n");
@@ -66,9 +66,7 @@ void movimentaDireita(Barco *meuBarco)
 void movimentaEsquerda(Barco *meuBarco)
 {
   FILE *fp = fopen("LogBots.txt", "a");
-  // write to the text file
   fprintf(fp, "\nBot A Andou Esquerda \n");
-  // close the file
   fclose(fp);
 
   printf("LEFT\n");
@@ -77,9 +75,7 @@ void movimentaEsquerda(Barco *meuBarco)
 void cmdPescar(Barco *meuBarco)
 {
   FILE *fp = fopen("LogBots.txt", "a");
-  // write to the text file
   fprintf(fp, "\nBot A Pescou \n");
-  // close the file
   fclose(fp);
 
   printf("FISH\n");
@@ -88,9 +84,7 @@ void cmdPescar(Barco *meuBarco)
 void cmdVender(Barco *meuBarco)
 {
   FILE *fp = fopen("LogBots.txt", "a");
-  // write to the text file
   fprintf(fp, "\nBot A Vendeu \n");
-  // close the file
   fclose(fp);
 
   printf("SELL\n");
@@ -100,7 +94,6 @@ void moverX(Barco meuBarco, bool pescar)
 {
   if (pescar)
   {
-    fprintf(stderr, "MOVENDO EM X PARA PORTO\n");
     if (meuBarco.xBot < meuBarco.xPeixeProximo)
     {
       movimentaDireita(&meuBarco);
@@ -167,7 +160,6 @@ void executarProximaAcao(Barco *meuBarco, int **mapaDados, bool *pescar)
       meuBarco->pesoAtual++;
       if (meuBarco->pesoAtual == 10)
       {
-        fprintf(stderr, "PESO ATUAL: %i\n", meuBarco->pesoAtual);
         *pescar = false;
         meuBarco->xPeixeProximo = -1;
         meuBarco->yPeixeProximo = -1;
@@ -229,7 +221,6 @@ void calcularPortoMaisProximo(Barco *meuBarco, Porto *Portos, int numeroPortos)
 
 bool temPeixe(int **mapaDados, int xAlvo, int yAlvo)
 {
-  // matriz do professor estava espelhada x = y y = x
   int conteudoPosicaoAtualBot = mapaDados[yAlvo][xAlvo];
 
   if (conteudoPosicaoAtualBot > 11 && conteudoPosicaoAtualBot < 40)
@@ -260,10 +251,8 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
   {
     while (meuBarco->yPeixeProximo == -1 || meuBarco->xPeixeProximo == -1)
     {
-      // está nos limites? (top)
       if (!(meuBarco->yBot - count < 0 || meuBarco->yBot - count > rangeY))
       {
-        // verifica top
         if (temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot - count))
         {
           meuBarco->xPeixeProximo = meuBarco->xBot;
@@ -272,10 +261,8 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
           return;
         }
       }
-      // está nos limites right?
       if (!(meuBarco->xBot + count < 0 || meuBarco->xBot + count > rangeX))
       {
-        // verifica right
         if (temPeixe(mapaDados, meuBarco->xBot + count, meuBarco->yBot))
         {
           meuBarco->xPeixeProximo = meuBarco->xBot + count;
@@ -284,10 +271,8 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
           return;
         }
       }
-      // verifica bottom
       if (!(meuBarco->yBot + count < 0 || meuBarco->yBot + count > rangeY))
       {
-        // verifica top
         if (temPeixe(mapaDados, meuBarco->xBot, meuBarco->yBot + count))
         {
           meuBarco->xPeixeProximo = meuBarco->xBot;
@@ -296,10 +281,8 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
           return;
         }
       }
-      // verifica left
       if (!(meuBarco->xBot - count < 0 || meuBarco->xBot - count > rangeX))
       {
-        // verifica left
         if (temPeixe(mapaDados, meuBarco->xBot - count, meuBarco->yBot))
         {
           meuBarco->xPeixeProximo = meuBarco->xBot - count;
@@ -313,7 +296,6 @@ void peixeMaisProximo(int **mapaDados, Barco *meuBarco, int h, int w)
   }
 }
 
-/* ADAPTAR EM FUNÇÃO DE COMO OS DADOS SERÃO ARMAZENADOS NO SEU BOT */
 void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
               int *numeroPortos, bool portosLidos)
 {
@@ -321,25 +303,20 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
   int n, x, y;
   int countPortos = 0;
 
-  // lê os dados da área de pesca
   for (int i = 0; i < h; i++)
   {
     for (int j = 0; j < w; j++)
     {
       scanf("%i", &mapaDados[i][j]);
 
-      // ELIMINA PEIXES NÃO PESCÁVEIS
       if (mapaDados[i][j] == 11 || mapaDados[i][j] == 21 || mapaDados[i][j] == 31)
       {
-        // VIRA MAR
         mapaDados[i][j] = 0;
       }
-      // VERIFICA POSIÇÃO DO PORTO
       if (!portosLidos)
       {
         if (mapaDados[i][j] == 1)
         {
-          // LENDO ARRAY DE PORTOS
           Portos[countPortos].xPorto = j;
           Portos[countPortos].yPorto = i;
           *numeroPortos = *numeroPortos + 1;
@@ -349,7 +326,6 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
     }
   }
 
-  // lê os dados dos bots
   scanf(" BOTS %i", &n);
 
   for (int i = 0; i < n; i++)
@@ -360,7 +336,6 @@ void readData(int h, int w, int **mapaDados, Barco *meuBarco, Porto *Portos,
       meuBarco->xBot = x;
       meuBarco->yBot = y;
       peixeMaisProximo(mapaDados, meuBarco, h, w);
-      // VERIFICAR PEIXE MAIS PRÓXIMO CHAMA FUNÇÃO ATÉ ACHAR UMA COORDENADA
       calcularPortoMaisProximo(meuBarco, Portos, *numeroPortos);
     }
   }
@@ -375,22 +350,18 @@ int main()
   setbuf(stdout, NULL);
   setbuf(stderr, NULL);
 
-  // === INÍCIO DA PARTIDA ===
   int h, w;
   scanf("AREA %i %i", &h, &w);
   scanf(" ID %s", myId);
 
-  // CRIANDO MAPA LOCAL
   int **mapaDados = (int **)malloc(sizeof(int *) * h);
   for (int i = 0; i < w; i++)
     mapaDados[i] = malloc(sizeof(int) * w);
 
-  // CRIANDO MAPA DE PORTOS
   struct Porto Portos[MAX_PRT];
   int numeroPortos = 0;
   bool portosLidos = false;
 
-  // CRIANDO OBJETO DE BARCO E PASSANDO A MEMORIA
   struct Barco meuBarco;
   strcpy(meuBarco.id, myId);
   meuBarco.pesoAtual = 0;
@@ -399,29 +370,21 @@ int main()
   meuBarco.xPeixeProximo = -1;
   meuBarco.yPeixeProximo = -1;
 
-  // !pescar = vender
   bool pescar = true;
 
-  // open the file for writing
   FILE *fp = fopen("LogBots.txt", "w");
-
-  // write to the text file
   fprintf(fp, "Projeto de ITP - OCMA\nAlunos: Elbert Natan       - 20210052554\n        João Victor Dantas - 20210054361\n\n******************************************* LOG DE MOVIMENTOS DO BOT *******************************************\n");
-
-  // close the file
   fclose(fp);
-  
+
   while (1)
   {
-
-    // LÊ OS DADOS DO JOGO E ATUALIZA OS DADOS DO BOT
     readData(h, w, mapaDados, &meuBarco, Portos, &numeroPortos, portosLidos);
     portosLidos = true;
-
     executarProximaAcao(&meuBarco, mapaDados, &pescar);
-
     scanf("%s", line);
   }
+
+  desalocarMemoria(mapaDados, w);
 
   return 0;
 }
