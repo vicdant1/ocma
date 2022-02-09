@@ -4,1234 +4,1746 @@ Alunos: Elbert Natan       - 20210052554
 
 ******************************************* LOG DE MOVIMENTOS DO BOT *******************************************
 
-Bot B Andou Cima 
+Bot A Andou Baixo 
 
-Bot C Andou Direita 
+Bot A Andou Baixo 
 
-Bot D Andou Cima 
+Bot A Andou Baixo 
 
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Cima 
+Bot A Andou Direita 
 
 Bot A Pescou 
 
-Bot B Pescou 
+Bot A Andou Baixo 
 
-Bot C Pescou 
+Bot A Andou Baixo 
 
-Bot D Andou Cima 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Andou Direita 
-
-Bot D Andou Baixo 
+Bot A Andou Direita 
 
 Bot A Pescou 
 
-Bot B Andou Cima 
+Bot A Andou Baixo 
 
-Bot C Andou Cima 
+Bot A Andou Baixo 
 
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Andou Cima 
-
-Bot D Pescou 
+Bot A Andou Direita 
 
 Bot A Pescou 
 
-Bot B Pescou 
+Bot A Andou Baixo 
 
-Bot C Andou Direita 
-
-Bot D Pescou 
-
-Bot A Andou Cima 
-
-Bot B Andou Cima 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
-Bot A Andou Cima 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Pescou 
+Bot A Andou Baixo 
 
 Bot A Pescou 
 
-Bot B Andou Baixo 
+Bot A Pescou 
 
-Bot C Pescou 
+Bot A Andou Baixo 
 
-Bot D Pescou 
+Bot A Andou Baixo 
 
 Bot A Pescou 
 
-Bot B Andou Esquerda 
+Bot A Pescou 
 
-Bot C Pescou 
+Bot A Andou Baixo 
 
-Bot D Pescou 
+Bot A Andou Baixo 
 
 Bot A Pescou 
 
-Bot B Pescou 
+Bot A Pescou 
 
-Bot C Andou Cima 
+Bot A Andou Baixo 
 
-Bot D Pescou 
+Bot A Andou Baixo 
+
+Bot A Andou Baixo 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Baixo 
 
 Bot A Pescou 
 
-Bot B Pescou 
+Bot A Pescou 
 
-Bot C Andou Direita 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Andou Baixo 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Baixo 
+
+Bot A Pescou 
 
 Bot A Andou Esquerda 
 
-Bot B Pescou 
-
-Bot C Andou Direita 
-
-Bot D Andou Baixo 
+Bot A Pescou 
 
 Bot A Andou Baixo 
 
-Bot B Pescou 
+Bot A Pescou 
 
-Bot C Pescou 
+Bot A Andou Esquerda 
 
-Bot D Pescou 
+Bot A Pescou 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Pescou 
 
-Bot C Andou Direita 
+Bot A Andou Esquerda 
 
-Bot D Pescou 
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Baixo 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Baixo 
+
+Bot A Andou Baixo 
 
 Bot A Vendeu 
 
-Bot B Andou Baixo 
-
-Bot C Pescou 
-
-Bot D Andou Cima 
-
-Bot A Andou Baixo 
-
-Bot B Andou Baixo 
-
-Bot C Pescou 
-
-Bot D Andou Cima 
-
-Bot A Andou Baixo 
-
-Bot B Vendeu 
-
-Bot C Andou Direita 
-
-Bot D Andou Cima 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Andou Cima 
-
-Bot D Andou Cima 
-
-Bot A Andou Direita 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Vendeu 
-
-Bot A Andou Direita 
-
-Bot B Andou Cima 
-
-Bot C Andou Direita 
-
-Bot D Andou Esquerda 
-
-Bot A Andou Direita 
-
-Bot B Pescou 
-
-Bot C Andou Direita 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Andou Direita 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Andou Baixo 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Baixo 
-
-Bot C Andou Baixo 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Baixo 
-
-Bot C Vendeu 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Andou Esquerda 
-
-Bot D Pescou 
-
-Bot A Andou Direita 
-
-Bot B Andou Esquerda 
-
-Bot C Andou Esquerda 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Andou Esquerda 
-
-Bot D Pescou 
-
-Bot A Andou Baixo 
-
-Bot B Pescou 
-
-Bot C Andou Baixo 
-
-Bot D Andou Cima 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Andou Baixo 
-
-Bot D Andou Cima 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Andou Baixo 
-
-Bot D Andou Cima 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
-
-Bot A Andou Esquerda 
-
-Bot B Andou Esquerda 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
-Bot A Andou Esquerda 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
-
-Bot A Andou Esquerda 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
-
-Bot A Andou Esquerda 
-
-Bot B Andou Direita 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
-
-Bot A Andou Esquerda 
-
-Bot B Andou Direita 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
 Bot A Andou Cima 
 
-Bot B Andou Baixo 
+Bot A Pescou 
 
-Bot C Andou Baixo 
+Bot A Andou Baixo 
 
-Bot D Andou Direita 
+Bot A Andou Esquerda 
 
 Bot A Vendeu 
 
-Bot B Andou Baixo 
-
-Bot C Pescou 
-
-Bot D Andou Cima 
-
-Bot A Andou Direita 
-
-Bot B Vendeu 
-
-Bot C Pescou 
-
-Bot D Andou Cima 
-
 Bot A Pescou 
 
-Bot B Andou Cima 
-
-Bot C Pescou 
-
-Bot D Andou Cima 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Pescou 
-
-Bot D Vendeu 
+Bot A Andou Baixo 
 
 Bot A Andou Esquerda 
-
-Bot B Pescou 
-
-Bot C Andou Cima 
-
-Bot D Andou Cima 
-
-Bot A Andou Esquerda 
-
-Bot B Andou Cima 
-
-Bot C Andou Cima 
-
-Bot D Andou Cima 
-
-Bot A Andou Esquerda 
-
-Bot B Pescou 
-
-Bot C Andou Cima 
-
-Bot D Andou Esquerda 
-
-Bot A Pescou 
-
-Bot B Andou Esquerda 
-
-Bot C Andou Cima 
-
-Bot D Andou Esquerda 
-
-Bot A Pescou 
-
-Bot B Andou Esquerda 
-
-Bot C Vendeu 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Baixo 
-
-Bot C Andou Baixo 
-
-Bot D Andou Direita 
-
-Bot A Pescou 
-
-Bot B Andou Baixo 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Baixo 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Baixo 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Baixo 
-
-Bot C Andou Baixo 
-
-Bot D Andou Esquerda 
 
 Bot A Andou Cima 
 
-Bot B Pescou 
+Bot A Pescou 
 
-Bot C Pescou 
-
-Bot D Andou Baixo 
+Bot A Andou Baixo 
 
 Bot A Andou Cima 
 
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
+Bot A Andou Cima 
 
 Bot A Pescou 
 
-Bot B Pescou 
+Bot A Andou Baixo 
 
-Bot C Pescou 
+Bot A Pescou 
 
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
+Bot A Andou Cima 
 
 Bot A Andou Direita 
 
-Bot B Pescou 
+Bot A Andou Baixo 
 
-Bot C Andou Esquerda 
+Bot A Pescou 
 
-Bot D Andou Baixo 
+Bot A Pescou 
+
+Bot A Pescou 
 
 Bot A Andou Direita 
 
-Bot B Pescou 
+Bot A Pescou 
 
-Bot C Pescou 
+Bot A Pescou 
 
-Bot D Andou Baixo 
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
 
 Bot A Vendeu 
 
-Bot B Pescou 
-
-Bot C Pescou 
-
-Bot D Andou Esquerda 
-
-Bot A Andou Direita 
-
-Bot B Andou Esquerda 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
-Bot A Andou Cima 
-
-Bot B Andou Cima 
-
-Bot C Pescou 
-
-Bot D Pescou 
-
-Bot A Andou Cima 
-
-Bot B Andou Cima 
-
-Bot C Andou Direita 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Andou Cima 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Andou Cima 
-
-Bot D Pescou 
-
-Bot A Pescou 
-
-Bot B Andou Cima 
-
-Bot C Andou Cima 
-
-Bot D Andou Direita 
-
-Bot A Andou Cima 
-
-Bot B Andou Cima 
-
-Bot C Andou Cima 
-
-Bot D Andou Direita 
-
-Bot A Pescou 
-
-Bot B Pescou 
-
-Bot C Vendeu 
-
-Bot D Andou Direita 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Direita 
 
 Bot A Vendeu 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Baixo 
 
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Direita 
 
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
+Bot A Andou Baixo 
 
-Bot C Andou Cima 
+Bot A Andou Esquerda 
 
-Bot D Andou Baixo 
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Esquerda 
 
-Bot D Andou Baixo 
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Direita 
 
-Bot C Andou Cima 
+Bot A Andou Esquerda 
 
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Direita 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Cima 
 
-Bot C Andou Cima 
+Bot A Andou Esquerda 
 
-Bot D Andou Baixo 
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
 
 Bot A Vendeu 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Esquerda 
 
 Bot A Andou Direita 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
 Bot A Pescou 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Baixo 
 
 Bot A Andou Esquerda 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
 
 Bot A Andou Direita 
 
-Bot B Andou Direita 
-
-Bot C Pescou 
-
-Bot D Andou Baixo 
-
 Bot A Pescou 
 
-Bot B Andou Direita 
+Bot A Andou Baixo 
 
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Esquerda 
 
 Bot A Andou Direita 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Esquerda 
 
-Bot D Andou Baixo 
+Bot A Andou Esquerda 
 
-Bot A Andou Cima 
+Bot A Andou Direita 
 
-Bot B Andou Direita 
+Bot A Andou Baixo 
 
-Bot C Andou Cima 
+Bot A Andou Esquerda 
 
-Bot D Andou Baixo 
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
 
 Bot A Pescou 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Esquerda 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Baixo 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Direita 
 
 Bot A Vendeu 
 
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
 Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Cima 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Andou Direita 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
-
-Bot A Pescou 
-
-Bot B Andou Direita 
-
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
 
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
+Bot A Andou Direita 
 
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Baixo 
 
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Andou Baixo 
+
+Bot A Pescou 
 
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
+Bot A Andou Direita 
 
-Bot C Andou Cima 
-
-Bot D Andou Baixo 
+Bot A Andou Direita 
 
 Bot A Andou Esquerda 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Andou Cima 
+
+Bot A Vendeu 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Vendeu 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Pescou 
 
 Bot A Andou Baixo 
 
-Bot B Andou Direita 
+Bot A Andou Esquerda 
 
-Bot C Andou Cima 
+Bot A Andou Direita 
 
-Bot D Andou Baixo 
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Vendeu 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Vendeu 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Vendeu 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Baixo 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Pescou 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Pescou 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Vendeu 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Vendeu 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Baixo 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Pescou 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
+
+Bot A Andou Cima 
+
+Bot A Andou Cima 
+
+Bot A Andou Esquerda 
+
+Bot A Andou Direita 
 
 Bot A Vendeu 
